@@ -39,19 +39,19 @@ export default class App extends Component {
     return (
       <div className="App">
         <header>
-          <nav>
-            <NavLink exact to="/">Posts</NavLink>
-            <NavLink exact to="/games">Games</NavLink>
-            <NavLink exact to="/profile">Profile</NavLink>
-            <NavLink exact to="/signup">Sign Up</NavLink>
-            <NavLink exact to="/login">Log In</NavLink>
-            <NavLink to="" onClick={handleLogout}>Log Out</NavLink>
+          <nav className="blue-grey darken-4">
+            <NavLink className="links" exact to="/">Posts</NavLink>
+            <NavLink className="links"  exact to="/profile">Profile</NavLink>
+            <NavLink className="links"  exact to="/games">Games</NavLink>
+            <NavLink className="auth"  exact to="/signup">Sign Up</NavLink>
+            <NavLink className="auth"  exact to="/login">Log In</NavLink>
+            <NavLink className="auth"  to="" onClick={handleLogout}>Log Out</NavLink>
           </nav>
-          {this.user ?
-        <p>Logged in as {this.user.name}</p>
-        :
-        <p>Not logged in.</p>
-        }
+          {this.state.user ?
+            <p>Welcome {this.state.user.name}!</p>
+            :
+            <p>Login or Signup today!</p>
+          }
         </header>
         <main>
           <Route exact path="/" render={() => 
@@ -63,9 +63,8 @@ export default class App extends Component {
             games={this.state.games}
             />
           } />
-          <Route exact path="/detail/:id" render={({ match }) => 
+          <Route exact path="/detail/:id" render={() => 
             <PostDetailPage
-              match={match}
             />
           } />
           <Route exact path='/signup' render={({ history }) => 
