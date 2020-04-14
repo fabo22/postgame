@@ -9,7 +9,7 @@ export default function GameListPage(props) {
         {props.games.results.map(game =>
         <div>
           <a>{game.name}</a>
-          <img src={game.background_image}/>
+          <img id="images" src={game.background_image}/>
         </div>
         )}
       </div>

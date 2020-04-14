@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const Schema = mongoose.Schema;
 
 const SALT_ROUNDS = 6;
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   name: {
       type: String,
       required: true
@@ -17,7 +18,9 @@ const userSchema = new mongoose.Schema({
   password: {
       type: String,
       required: true
-  }
+  },
+  favoriteGames: [Schema.Types.ObjectId],
+  avatar: String
 }, {
   timestamps: true
 });
