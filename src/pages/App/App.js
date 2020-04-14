@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import './App.css';
+import userService from '../../services/userService';
+import * as gamesAPI from '../../services/gameapiService';
+import postsAPI from '../../services/postsapiService';
 import PostListPage from '../PostListPage/PostListPage';
 import PostDetailPage from '../PostDetailPage/PostDetailPage';
+import PostAddPage from '../PostAddPage/PostAddPage';
+import PostEditPage from '../PostEditPage/PostEditPage';
 import GamesListPage from '../GameListPage/GameListPage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
-import userService from '../../services/userService';
-import * as gamesAPI from '../../services/gameapiService';
 
 
 export default class App extends Component {
@@ -15,18 +18,66 @@ export default class App extends Component {
     super();
     this.state = {
       user: userService.getUser(),
-      games: []
+      games: [],
+      posts: []
     }
   }
 
   async componentDidMount() {
-    const games = await gamesAPI.getAllGames();
-    console.log(games)
-    this.setState({games});
+    try {
+      const games = await gamesAPI.getAllGames();
+      this.setState({games});
+      const posts = await postsAPI.getAllPosts();
+      this.setState({posts});
+    } catch (err) {
+        console.log(err);
+    }
   }
+  
+  handleAddPost = async (newPostData) => {
+		try {
+			const newPost = await postsAPI.create(newPostData);
+			this.setState(
+				(state) => ({
+					posts: [...state.posts, newPost],
+				}),
+				() => this.props.history.push('/')
+			);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	handleDeletePost = async (id) => {
+		try {
+			await postsAPI.deleteOne(id);
+			this.setState(
+				(state) => ({
+					posts: state.posts.filter((p) => p._id !== id),
+				}),
+				() => this.props.history.push('/')
+			);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	handleUpdatePost = async (updatedPostData) => {
+		try {
+			const updatedPost = await postsAPI.update(updatedPostData);
+			const newPostsArray = this.state.posts.map((p) =>
+				p._id === updatedPost._id ? updatedPost : p
+			);
+			this.setState({ channels: newPostsArray }, () =>
+				this.props.history.push('/')
+			);
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
   render() {
-
+    
     const handleLogout = () => {
       userService.logout();
       this.setState({user: null});
@@ -40,7 +91,7 @@ export default class App extends Component {
       <div className="App">
         <header>
           <nav className="blue-grey darken-4">
-            <NavLink className="links" exact to="/">Posts</NavLink>
+            <NavLink className="links" exact to="/posts">Posts</NavLink>
             <NavLink className="links"  exact to="/profile">Profile</NavLink>
             <NavLink className="links"  exact to="/games">Games</NavLink>
             <NavLink className="auth"  exact to="/signup">Sign Up</NavLink>
@@ -54,17 +105,31 @@ export default class App extends Component {
           }
         </header>
         <main>
-          <Route exact path="/" render={() => 
-            <PostListPage
-            />
-          } />
           <Route exact path="/games" render={() => 
             <GamesListPage
             games={this.state.games}
             />
           } />
-          <Route exact path="/detail/:id" render={() => 
-            <PostDetailPage
+          <Route exact path="/posts" render={( history ) => 
+            <PostListPage
+            history={history}
+            posts={this.state.posts}
+            />
+          } />
+          <Route exact path="/edit-post" render={( history ) => 
+            <PostAddPage
+            user={this.state.user}
+            handleAddPost={this.handleAddPost}
+            />
+          } />
+          <Route exact path="/new-post" render={( history, location ) => 
+            <PostEditPage
+            handleUpdatePost={this.handleUpdatePost}
+            location={location}
+            />
+          } />
+          <Route exact path="/post-details" render={( location ) => 
+            <PostDetailPage location={location}
             />
           } />
           <Route exact path='/signup' render={({ history }) => 
