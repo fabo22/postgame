@@ -1,9 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
+import PostCard from '../../components/PostCard';
 
-export default class PostListPage extends Component {
-    render() {
+export default function PostListPage(props) {
         return (
-            <h1>Post List Page</h1>
+                <div className="wrapper">
+                    <h1>All Posts</h1>
+                    <div>
+                        {props.posts.map((post) => (
+                            <PostCard
+                                key={post._id}
+                                post={post}
+                                handleDeletePost={props.handleDeletePost}
+                            />
+                        ))}
+                    </div>
+                </div>
         );
     }
-}

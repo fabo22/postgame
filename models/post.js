@@ -1,6 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+    content: {
+      type: String,
+      required: true
+    },
+    createdBy: Schema.Types.ObjectId,
+  }, {
+    timestamps: true
+  });
+  
+
 const postSchema = new Schema({
     title: {
         type: String,
@@ -10,9 +21,19 @@ const postSchema = new Schema({
         type: String,
         required: true
     },
-    game: [Schema.Types.ObjectId],
-    comments: [Schema.Types.ObjectId],
-    createdBy: Schema.Types.ObjectId
+    userCount: {
+        type: Number,
+        required: true
+    },
+    postGame: {
+        type: Schema.Types.ObjectId,
+        ref: 'Game'
+    },
+    comments: [commentSchema],
+    postUser: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 }, {
     timestamps: true
 });

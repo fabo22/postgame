@@ -41,7 +41,7 @@ export default class App extends Component {
 				(state) => ({
 					posts: [...state.posts, newPost],
 				}),
-				() => this.props.history.push('/')
+				() => this.props.history.push('/posts')
 			);
 		} catch (err) {
 			console.log(err);
@@ -55,7 +55,7 @@ export default class App extends Component {
 				(state) => ({
 					posts: state.posts.filter((p) => p._id !== id),
 				}),
-				() => this.props.history.push('/')
+				() => this.props.history.push('/posts')
 			);
 		} catch (err) {
 			console.log(err);
@@ -69,7 +69,7 @@ export default class App extends Component {
 				p._id === updatedPost._id ? updatedPost : p
 			);
 			this.setState({ channels: newPostsArray }, () =>
-				this.props.history.push('/')
+				this.props.history.push('/posts')
 			);
 		} catch (err) {
 			console.log(err);
@@ -91,7 +91,8 @@ export default class App extends Component {
       <div className="App">
         <header>
           <nav className="blue-grey darken-4">
-            <NavLink className="links" exact to="/posts">Posts</NavLink>
+            <NavLink className="links" exact to="/posts">View All Posts</NavLink>
+            <NavLink className="links" exact to="/new-post">Create a Post</NavLink>
             <NavLink className="links"  exact to="/profile">Profile</NavLink>
             <NavLink className="links"  exact to="/games">Games</NavLink>
             <NavLink className="auth"  exact to="/signup">Sign Up</NavLink>
@@ -114,17 +115,19 @@ export default class App extends Component {
             <PostListPage
             history={history}
             posts={this.state.posts}
+            handleDeletePost={this.handleDeletePost}
             />
           } />
           <Route exact path="/edit-post" render={( history ) => 
-            <PostAddPage
+            <PostEditPage
             user={this.state.user}
-            handleAddPost={this.handleAddPost}
+            handleUpdatePost={this.handleUpdatePost}
             />
           } />
           <Route exact path="/new-post" render={( history, location ) => 
-            <PostEditPage
-            handleUpdatePost={this.handleUpdatePost}
+            <PostAddPage
+            user={this.state.user}
+            handleAddPost={this.handleAddPost}
             location={location}
             />
           } />

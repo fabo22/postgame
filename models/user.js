@@ -19,7 +19,10 @@ const userSchema = new Schema({
       type: String,
       required: true
   },
-  favoriteGames: [Schema.Types.ObjectId],
+  favoriteGames: {
+    type: [Schema.Types.ObjectId],
+    ref: 'Game',
+  },
   avatar: String
 }, {
   timestamps: true
