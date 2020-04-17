@@ -6,7 +6,10 @@ const commentSchema = new Schema({
       type: String,
       required: true
     },
-    createdBy: Schema.Types.ObjectId,
+    commentUser: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
   }, {
     timestamps: true
   });

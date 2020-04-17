@@ -1,4 +1,5 @@
 import React from 'react';
+import AddComment from '../../components/AddComment';
 import PostCardNew from '../../components/PostCardNew';
 
 export default function PostDetailPage(props) {
@@ -10,6 +11,15 @@ export default function PostDetailPage(props) {
         key={post._id}
         post={post}
       />
+	<div>
+		<AddComment user={props.user} handleAddComment={props.handleAddComment} post={post}/>
+		{post.comments.map(comment =>
+		<>
+		<h1>{comment.content}</h1>
+		<p>{console.log(comment)}</p>
+		</>
+		)}
+	</div>
     </>
   );
 }

@@ -4,6 +4,7 @@ import './App.css';
 import userService from '../../services/userService';
 import * as gamesAPI from '../../services/gameapiService';
 import postsAPI from '../../services/postsapiService';
+import commentAPI from '../../services/commentsapiService';
 import ProfilePage from '../../pages/ProfilePage/ProfilePage';
 import PostListPage from '../PostListPage/PostListPage';
 import PostDetailPage from '../PostDetailPage/PostDetailPage';
@@ -19,6 +20,7 @@ export default class App extends Component {
     this.state = {
       user: userService.getUser(),
       games: [],
+      comments: [],
       posts: []
     }
   }
@@ -55,6 +57,48 @@ export default class App extends Component {
 					posts: state.posts.filter((p) => p._id !== id),
 				}),
 				() => this.props.history.push('/posts')
+			);
+		} catch (err) {
+			console.log(err);
+		}
+  };
+  
+  handleAddComment = async (newCommentData) => {
+		try {
+			const newComment = await commentAPI.create(newCommentData);
+			this.setState(
+				(state) => ({
+					comments: [...state.comments, newComment],
+				}),
+				() => this.props.history.push('/')
+			);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	handleDeleteComment = async (id) => {
+		try {
+			await commentAPI.deleteOne(id);
+			this.setState(
+				(state) => ({
+					comments: state.comments.filter((p) => p._id !== id),
+				}),
+				() => this.props.history.push('/')
+			);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	handleUpdateComment = async (updatedCommentData) => {
+		try {
+			const updatedComment = await commentAPI.update(updatedCommentData);
+			const newCommentsArray = this.state.comments.map((p) =>
+				p._id === updatedComment._id ? updatedComment : p
+			);
+			this.setState({ comments: newCommentsArray }, () =>
+				this.props.history.push('/')
 			);
 		} catch (err) {
 			console.log(err);
@@ -124,6 +168,10 @@ export default class App extends Component {
           } />
           <Route exact path="/post-details" render={( location ) => 
             <PostDetailPage
+            user={this.state.user}
+            handleAddComment={this.handleAddComment}
+            handleDeleteComment={this.handleDeleteComment}
+            handleUpdateComment={this.handleUpdateComment}
             location={location}
             />
           } />
