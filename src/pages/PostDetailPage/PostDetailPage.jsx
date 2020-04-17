@@ -1,14 +1,15 @@
 import React from 'react';
-import PostCard from '../../components/PostCard';
+import PostCardNew from '../../components/PostCardNew';
 
 export default function PostDetailPage(props) {
-	const post = props.location.state.post;
-	return (
-		<>
-			<div className="wrapper">
-				<h1>Post Details</h1>
-				<PostCard key={post._id} post={post} />
-			</div>
-		</>
-	);
+  const post = props.location.location.state.post;
+  return (
+    <>
+      <h1>Post Details</h1>
+      <PostCardNew
+        key={post._id}
+        post={post}
+      />
+    </>
+  );
 }

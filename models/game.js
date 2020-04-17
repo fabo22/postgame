@@ -5,7 +5,10 @@ const gameSchema = Schema({
   name: String,
   image: String,
   releaseDate: String,
-  users: [Schema.Types.ObjectId]
+  users: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }]
 }, {
   timestamps: true
 });

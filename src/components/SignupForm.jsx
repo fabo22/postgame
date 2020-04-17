@@ -7,6 +7,7 @@ class SignupForm extends Component {
   state = {
     name: '',
     email: '',
+    avatar: '',
     password: '',
     passwordConf: ''
   };
@@ -34,7 +35,7 @@ class SignupForm extends Component {
   }
 
   isFormInvalid() {
-    return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf);
+    return !(this.state.name && this.state.email && this.state.avatar && this.state.password === this.state.passwordConf);
   }
 
   render() {
@@ -50,6 +51,11 @@ class SignupForm extends Component {
           <div className="form-group">
             <div className="col-sm-12">
               <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-12">
+              <input type="text" className="form-control" placeholder="Avatar (Paste Img URL)" value={this.state.avatar} name="avatar" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">

@@ -6,14 +6,15 @@ export default class PostAddPage extends Component {
 		invalidForm: true,
 		formData: {
 			title: '',
-			content: '',
+            content: '',
+            userCount: 0,
             postGame: this.props.game,
             postUser: this.props.user
 		},
 	};
 
 	handleSubmit = (e) => {
-		e.preventDefault();
+        e.preventDefault();
 		this.props.handleAddPost(this.state.formData);
     };
     
@@ -52,6 +53,17 @@ export default class PostAddPage extends Component {
                                 placeholder="What's on your mind?"
                                 value={this.state.content}
                                 name="content"
+                                onChange={this.handleChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <input
+                                type="number"
+                                placeholder="Number of gamers"
+                                value={this.state.userCount}
+                                name="userCount"
                                 onChange={this.handleChange}
                             />
                         </div>

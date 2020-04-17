@@ -5,11 +5,10 @@ module.exports = {
     create,
     show,
     delete: deletePost,
-    update,
 };
 
 async function index(req, res) {
-    const posts = await Post.find({});
+	const posts = await Post.find({}).populate('postUser');
     res.status(200).json(posts);
 }
 
@@ -21,13 +20,6 @@ async function create(req, res) {
 async function show(req, res) {
 	const post = await Post.findById(req.params.id);
 	res.status(200).json(post);
-}
-
-async function update(req, res) {
-	const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {
-		new: true,
-	});
-	res.status(200).json(updatedPost);
 }
 
 async function deletePost(req, res) {
