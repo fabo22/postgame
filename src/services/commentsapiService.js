@@ -5,7 +5,10 @@ function create(comment) {
 		method: 'POST',
 		headers: { 'content-type': 'application/json' },
 		body: JSON.stringify(comment),
-	}).then((res) => res.json());
+	}).then(async res => {
+        const anything = res.json()
+        return anything;
+    });
 }
 
 function deleteOne(id) {

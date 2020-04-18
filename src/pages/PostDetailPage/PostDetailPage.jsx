@@ -16,7 +16,7 @@ export default function PostDetailPage(props) {
 		{post.comments.map(comment =>
 		<>
 		<h1>{comment.content}</h1>
-		<p>{console.log(comment)}</p>
+		<p>{comment.commentUser.name}</p>
 		</>
 		)}
 	</div>

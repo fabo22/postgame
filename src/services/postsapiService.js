@@ -3,8 +3,7 @@ const BASE_URL = '/api/posts';
 export function getAllPosts() {
     return fetch(BASE_URL)
 	.then(async res => {
-		const anything = await res.json()
-		return anything;
+		return await res.json()
 	});
 }
 

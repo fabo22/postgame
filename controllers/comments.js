@@ -7,9 +7,8 @@ module.exports = {
 };
 
 async function create(req, res) {
-    const comment = await Post.findByIdAndUpdate(req.body.id, {$push: {comments: req.body}});
+    const comment = await (await Post.findByIdAndUpdate(req.body.id, {$push: {comments: req.body}}));
     // post.comments.push(req.body);
-    console.log(comment);
 	res.status(201).json(comment);
 }
 

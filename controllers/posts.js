@@ -8,7 +8,7 @@ module.exports = {
 };
 
 async function index(req, res) {
-	const posts = await Post.find({}).populate('postUser');
+	const posts = await Post.find({}).populate('postUser').populate('comments.commentUser');
     res.status(200).json(posts);
 }
 
