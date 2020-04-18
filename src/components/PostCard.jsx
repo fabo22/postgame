@@ -13,15 +13,13 @@ export default function PostCard({ user, post, handleDeletePost }) {
 						<p>User Count: { post.userCount }</p>
 						<p>{ post.content }</p>
 					</div>
-					{user.name === post.postUser.name ?
+					{/* {user.name === post.postUser.name ? */}
 					<div className="card-action">
 						<Link onClick={() => handleDeletePost(post._id)}>Delete Post</Link>
-					</div>
-						:
-					<div className="card-action">
                         <Link to={{ pathname: '/post-details', state: { post } }}>Details</Link>
 					</div>
-					}
+						{/* : */}
+					
 				</div>
 			</div>
 		</div>
