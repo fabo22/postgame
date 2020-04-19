@@ -13,6 +13,8 @@ export default function PostCardNew({post}) {
           <dd>{post.content}</dd>
           <dt>User Count</dt>
           <dd>{post.userCount}</dd>
+          <dt>Game</dt>
+          <dd>{post.game}</dd>
         </dl>
       </div>
       <div className='panel-footer'>

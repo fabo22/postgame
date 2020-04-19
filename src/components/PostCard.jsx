@@ -6,12 +6,11 @@ export default function PostCard({ user, post, handleDeletePost }) {
 	return (
 		<div className="row">
 			<div className="col s12 m6">
-				<div className="card">
+				<div className="card mat-card">
 					<div className="card-content black-text">
                         <h3>{post.title}</h3>
                         <p>Created By: { post.postUser.name }</p>
-						<p>User Count: { post.userCount }</p>
-						<p>{ post.content }</p>
+						<p>Game: { post.game }</p>
 					</div>
 					{/* {user.name === post.postUser.name ? */}
 					<div className="card-action">

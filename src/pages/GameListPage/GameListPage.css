@@ -1,0 +1,25 @@
+*::-webkit-scrollbar {
+    display: none;
+  }
+
+.images {
+    width: 60vmin !important;
+}
+
+.image-card {
+    width: 60vmin !important;
+}
+
+.full-card {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#game-list-titles {
+    text-align: center;
+    padding-bottom: 2vh;
+}
+
+.game-title {
+    background-color: rgba(0,0,0,.5);
+}

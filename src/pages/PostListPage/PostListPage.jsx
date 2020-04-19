@@ -1,6 +1,6 @@
 import React from 'react';
 import PostCard from '../../components/PostCard';
-// import PostListItem from '../../components/PostListItem';
+import './PostListPage.css';
 
 export default function PostListPage(props) {
     return (

@@ -28,9 +28,9 @@ const postSchema = new Schema({
         type: Number,
         required: true
     },
-    postGame: {
-        type: Schema.Types.ObjectId,
-        ref: 'Game'
+    game: {
+        type: String,
+        required: true
     },
     comments: [commentSchema],
     postUser: {
