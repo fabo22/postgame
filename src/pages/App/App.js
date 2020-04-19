@@ -42,7 +42,7 @@ export default class App extends Component {
 				(state) => ({
 					posts: [...state.posts, newPost],
 				}),
-				() => this.props.history.push('/posts')
+				() => this.props.history.push('/')
 			);
 		} catch (err) {
 			console.log(err);
@@ -56,7 +56,7 @@ export default class App extends Component {
 				(state) => ({
 					posts: state.posts.filter((p) => p._id !== id),
 				}),
-				() => this.props.history.push('/posts')
+				() => this.props.history.push('/')
 			);
 		} catch (err) {
 			console.log(err);
@@ -121,7 +121,7 @@ export default class App extends Component {
         <header>
           {this.state.user ?
           <nav className="blue-grey darken-4">
-             <NavLink className="links" exact to="/posts">View All Posts</NavLink>
+             <NavLink className="links" exact to="/">View All Posts</NavLink>
              <NavLink className="links" exact to="/new-post">Create a Post</NavLink>
              <NavLink className="links"  exact to="/profile">Profile</NavLink>
              <NavLink className="links"  exact to="/games">Games</NavLink>
@@ -129,7 +129,7 @@ export default class App extends Component {
           </nav>
             :
           <nav className="blue-grey darken-4">
-            <NavLink className="links" exact to="/posts">View All Posts</NavLink>
+            <NavLink className="links" exact to="/">View All Posts</NavLink>
             <NavLink className="links"  exact to="/games">Games</NavLink>
             <NavLink className="auth"  exact to="/signup">Sign Up</NavLink>
             <NavLink className="auth"  exact to="/login">Log In</NavLink>
@@ -152,7 +152,7 @@ export default class App extends Component {
             games={this.state.games}
             />
           } />
-          <Route exact path="/posts" render={( history ) => 
+          <Route exact path="/" render={( history ) => 
             <PostListPage
             user={this.state.user}
             history={history}

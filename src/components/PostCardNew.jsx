@@ -16,7 +16,7 @@ export default function PostCardNew({post}) {
         </dl>
       </div>
       <div className='panel-footer'>
-        <Link to='/posts'>RETURN TO LIST</Link>
+        <Link to='/'>RETURN TO LIST</Link>
       </div>
     </div>
   );
