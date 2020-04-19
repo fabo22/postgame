@@ -33,7 +33,7 @@ export default class AddComment extends Component {
 								<form>
 									<input
 										type="text"
-										placeholder="Write a nice comment!"
+										placeholder="Leave a Reply"
 										autoComplete={'off'}
 										value={this.state.name}
 										name="content"
@@ -45,7 +45,7 @@ export default class AddComment extends Component {
 						</div>
 						<div>
 							<div>
-								<button className="waves-effect waves-light btn blue-grey darken-4">POST COMMENT</button>
+								<button className="waves-effect waves-light btn blue-grey darken-4">REPLY</button>
 							</div>
 						</div>
 					</form>

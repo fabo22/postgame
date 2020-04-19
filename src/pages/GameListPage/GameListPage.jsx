@@ -14,10 +14,10 @@ export default function GameListPage(props) {
            <div className="card image-card">
              <div className="card-image images">
              <img src={game.background_image}/>
-               <span className="card-title game-title">{game.name}</span>
+               <span className="card-title game-title white-text">{game.name}</span>
                <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">thumb_up</i></a>
              </div>
-            <div className="card-content">
+            <div className="card-content white-text">
               <p>Release Date: {game.released}</p>
               <p>Rating: {game.rating}/5</p>
             </div>

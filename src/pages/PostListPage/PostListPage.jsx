@@ -6,7 +6,7 @@ export default function PostListPage(props) {
     return (
         <div className="wrapper">
             <h1>All Posts</h1>
-            <div>
+            <div className="post-container">
                 {props.posts.map((post) => (
                     <PostCard
                         key={post._id}

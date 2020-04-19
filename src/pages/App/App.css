@@ -7,3 +7,11 @@
     float: right;
     padding: 1vmin;
 }
+
+.App {
+    background-color: #506169;
+}
+
+.card {
+    background-color: #253239 !important;
+}

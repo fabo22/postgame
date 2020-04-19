@@ -1,6 +1,7 @@
 import React from 'react';
 import AddComment from '../../components/AddComment';
 import PostCardNew from '../../components/PostCardNew';
+import './PostDetailPage';
 
 export default function PostDetailPage(props) {
   const post = props.location.location.state.post;
