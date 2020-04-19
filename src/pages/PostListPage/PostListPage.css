@@ -2,7 +2,17 @@
     width: 50vh !important;
 }
 
+.mat-content {
+    height: 30vh !important;
+}
+
 .post-container {
     display: grid;
     grid-template-columns: auto auto auto;
+}
+
+#all-post-title {
+    text-align: center;
+    padding-bottom: 2vh;
+    color: white;
 }

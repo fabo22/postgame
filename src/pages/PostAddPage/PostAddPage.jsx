@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Select } from 'react-materialize';
-import './PostAddPage';
+import './PostAddPage.css';
 
 export default class PostAddPage extends Component {
 	state = {
@@ -31,7 +31,7 @@ export default class PostAddPage extends Component {
 	render() {
 		return (
             <div className="row wrapper" id="add-post">
-                <h2>Create Post</h2>
+                <h2 id="create-post-title">Create Post</h2>
                 <form className="col s12" onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="input-field col s12">

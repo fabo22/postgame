@@ -13,13 +13,16 @@
 .full-card {
     display: grid;
     grid-template-columns: auto auto;
+    font-family: 'Press Start 2P', cursive;
 }
 
 #game-list-titles {
     text-align: center;
     padding-bottom: 2vh;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .game-title {
     background-color: rgba(0,0,0,.5);
+    font-family: 'Press Start 2P', cursive;
 }

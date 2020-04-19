@@ -7,15 +7,15 @@ export default function PostCard({ user, post, handleDeletePost }) {
 		<div className="row">
 			<div className="col s12 m6">
 				<div className="card mat-card">
-					<div className="card-content white-text">
+					<div className="card-content white-text mat-content">
                         <h3>{post.title}</h3>
                         <p>Created By: { post.postUser.name }</p>
 						<p>Game: { post.game }</p>
 					</div>
 					{/* {user.name === post.postUser.name ? */}
-					<div className="card-action white-text">
-						<Link onClick={() => handleDeletePost(post._id)}>Delete Post</Link>
-                        <Link to={{ pathname: '/post-details', state: { post } }}>Details</Link>
+					<div className="card-action">
+						<Link style={{color: "gray"}} onClick={() => handleDeletePost(post._id)}>Delete Post</Link>
+                        <Link style={{color: "gray"}} to={{ pathname: '/post-details', state: { post } }}>Details</Link>
 					</div>
 						{/* : */}
 					
