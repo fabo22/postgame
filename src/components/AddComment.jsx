@@ -29,7 +29,7 @@ export default class AddComment extends Component {
 				<div className="row wrapper">
 					<form className="col s12" onSubmit={this.handleSubmit}>
 						<div className="row">
-							<div className="input-field col s12">
+							<div className="input-field col s6 mat-input">
 								<form>
 									<input
 										type="text"
@@ -45,7 +45,7 @@ export default class AddComment extends Component {
 						</div>
 						<div>
 							<div>
-								<button className="waves-effect waves-light btn blue-grey darken-4">REPLY</button>
+								<button className="waves-effect waves-light btn blue-grey darken-4 mat-input">REPLY</button>
 							</div>
 						</div>
 					</form>

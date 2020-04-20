@@ -1,6 +1,6 @@
 #add-post {
     align-items: center;
-    padding-bottom: 32vmin;
+    padding-bottom: 34vmin;
 }
 
 #create-post-title {
@@ -11,4 +11,13 @@
 
 .select-wrapper input.select-dropdown {
     color: white;
+    margin-left: 167%;
+}
+
+.select-wrapper .caret {
+    color: white;
+    left: 250%;
+}
+.mat-in {
+    margin-left: 15% !important;
 }

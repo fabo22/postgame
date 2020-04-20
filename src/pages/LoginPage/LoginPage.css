@@ -3,5 +3,13 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    padding-bottom: 70vh;
   }
+
+.signup-title {
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3vh;
+  padding-bottom: 3vh;
+  color: white;
+}

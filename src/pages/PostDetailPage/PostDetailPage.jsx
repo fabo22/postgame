@@ -6,7 +6,7 @@ import './PostDetailPage.css';
 export default function PostDetailPage(props) {
   const post = props.location.location.state.post;
   return (
-    <>
+    <div className="detail-container">
       <PostCardNew
         key={post._id}
         post={post}
@@ -15,11 +15,11 @@ export default function PostDetailPage(props) {
 		<AddComment user={props.user} handleAddComment={props.handleAddComment} post={post}/>
 		{post.comments.map(comment =>
 		<div className="comment-section">
-      <h1 id="comment-content">{comment.content}</h1>
-      <p id="comment-name">{comment.commentUser.name}</p>
+      <p id="comment-content">{comment.content}</p>
+      <p id="comment-name">Posted by {comment.commentUser.name}</p>
 		</div>
 		)}
 	</div>
-    </>
+    </div>
   );
 }

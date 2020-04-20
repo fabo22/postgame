@@ -34,7 +34,7 @@ export default class PostAddPage extends Component {
                 <h2 id="create-post-title">Create Post</h2>
                 <form className="col s12" onSubmit={this.handleSubmit}>
                     <div className="row">
-                        <div className="input-field col s12">
+                        <div className="input-field col s8 mat-in">
                             <form>
                                 <input
                                     type="text"
@@ -50,7 +50,7 @@ export default class PostAddPage extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="input-field col s12">
+                        <div className="input-field col s8 mat-in">
                             <input
                                 type="text"
                                 maxLength="340"
@@ -62,7 +62,7 @@ export default class PostAddPage extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="input-field col s12">
+                        <div className="input-field col s8 mat-in">
                             <input
                                 type="number"
                                 placeholder="Number of gamers"
@@ -73,13 +73,13 @@ export default class PostAddPage extends Component {
                         </div>
                     </div>
                     <Select
-                        label="Choose a game"
+                        className="mat-in"
                         multiple={false}
                         name="game"
                         options={{
                             classes: '',
                             dropdownOptions: {
-                            alignment: 'left',
+                            alignment: 'right',
                             autoTrigger: true,
                             closeOnClick: true,
                             constrainWidth: true,
@@ -126,13 +126,9 @@ export default class PostAddPage extends Component {
                     <br/>
                     <div>
                         <div>
-                            <button className="waves-effect waves-light btn blue-grey darken-4">Create</button>
+                            <button className="waves-effect waves-light btn blue-grey darken-4 mat-in">Create</button>
                             &nbsp;&nbsp;
-                            <button className="waves-effect waves-light btn blue-grey darken-4">
-                                <Link style={{ color: 'white' }} to="/">
-                                    Cancel
-                                </Link>
-                            </button>
+                            <Link style={{ color: 'white' }} to="/">Cancel</Link>
                         </div>
                     </div>
                 </form>
