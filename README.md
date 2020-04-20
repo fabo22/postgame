@@ -5,15 +5,15 @@ A social media application where you can look for people to play video games wit
 
 ## Screenshots
 ### Home Page
-![Home Page]()
+![Home Page](public/homepage.png)
 ### New Post Page
-![New Post Page]()
+![New Post Page](public/createpostpage.png)
 ### Post Detail Page
-![Post Page]()
+![Post Page](public/detailpage.png)
 ### Profile Page
-![Profile Page]()
+![Profile Page](public/profilepage.png)
 ### Games Page
-![Games Page]()
+![Games Page](public/gamepage.png)
 
 ## Technologies
 - JavaScript
