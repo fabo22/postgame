@@ -1,11 +1,13 @@
 #profile-content {
     align-content: center;
     padding: 1vmin;
+    padding-bottom: 25vmin;
 }
 
 #profile-images {
     width: 50vmin;
     border-radius: 50%;
+    border: 2px solid #253239;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -13,9 +15,6 @@
 
 #profile-title {
     text-align: center;
-}
-
-.para {
-    text-align: center;
-    padding-top: 1vmin;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
 }

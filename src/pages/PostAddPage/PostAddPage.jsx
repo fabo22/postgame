@@ -40,6 +40,7 @@ export default class PostAddPage extends Component {
                                     type="text"
                                     placeholder="Title"
                                     autoComplete={'off'}
+                                    maxLength="30"
                                     value={this.state.title}
                                     name="title"
                                     onChange={this.handleChange}
@@ -52,6 +53,7 @@ export default class PostAddPage extends Component {
                         <div className="input-field col s12">
                             <input
                                 type="text"
+                                maxLength="340"
                                 placeholder="What's on your mind?"
                                 value={this.state.content}
                                 name="content"

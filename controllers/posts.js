@@ -4,7 +4,7 @@ module.exports = {
     index,
     create,
     show,
-    delete: deletePost,
+	delete: deletePost,
 };
 
 async function index(req, res) {

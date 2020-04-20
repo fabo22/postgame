@@ -1,4 +1,4 @@
-const BASE_URL = '/api/posts';
+const BASE_URL = '/api/posts' || 'https://postgame-app.herokuapp.com/api/posts';
 
 export function getAllPosts() {
     return fetch(BASE_URL)

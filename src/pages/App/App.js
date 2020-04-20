@@ -62,7 +62,7 @@ export default class App extends Component {
 			console.log(err);
 		}
   };
-  
+
   handleAddComment = async (newCommentData) => {
 		try {
 			const newComment = await commentAPI.create(newCommentData);
@@ -71,34 +71,6 @@ export default class App extends Component {
 					comments: [...state.comments, newComment],
 				}),
 				() => this.props.history.push('/')
-			);
-		} catch (err) {
-			console.log(err);
-		}
-	};
-
-	handleDeleteComment = async (id) => {
-		try {
-			await commentAPI.deleteOne(id);
-			this.setState(
-				(state) => ({
-					comments: state.comments.filter((p) => p._id !== id),
-				}),
-				() => this.props.history.push('/')
-			);
-		} catch (err) {
-			console.log(err);
-		}
-	};
-
-	handleUpdateComment = async (updatedCommentData) => {
-		try {
-			const updatedComment = await commentAPI.update(updatedCommentData);
-			const newCommentsArray = this.state.comments.map((p) =>
-				p._id === updatedComment._id ? updatedComment : p
-			);
-			this.setState({ comments: newCommentsArray }, () =>
-				this.props.history.push('/')
 			);
 		} catch (err) {
 			console.log(err);
@@ -152,18 +124,20 @@ export default class App extends Component {
             games={this.state.games}
             />
           } />
-          <Route exact path="/" render={( history ) => 
+          <Route exact path="/" render={( history, location ) => 
             <PostListPage
+            location={location}
             user={this.state.user}
             history={history}
             posts={this.state.posts}
             handleDeletePost={this.handleDeletePost}
             />
           } />
-          <Route exact path="/new-post" render={( history ) => 
+          <Route exact path="/new-post" render={( history, location ) => 
             <PostAddPage
             user={this.state.user}
             handleAddPost={this.handleAddPost}
+            location={location}
             />
           } />
           <Route exact path="/post-details" render={( location ) => 

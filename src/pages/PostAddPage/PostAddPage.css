@@ -5,4 +5,10 @@
 
 #create-post-title {
     color: white;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+.select-wrapper input.select-dropdown {
+    color: white;
 }
