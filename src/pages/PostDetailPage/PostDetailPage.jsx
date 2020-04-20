@@ -7,7 +7,6 @@ export default function PostDetailPage(props) {
   const post = props.location.location.state.post;
   return (
     <>
-      <h1>Post Details</h1>
       <PostCardNew
         key={post._id}
         post={post}
@@ -15,10 +14,10 @@ export default function PostDetailPage(props) {
 	<div>
 		<AddComment user={props.user} handleAddComment={props.handleAddComment} post={post}/>
 		{post.comments.map(comment =>
-		<>
-		<h1>{comment.content}</h1>
-		<p>{comment.commentUser.name}</p>
-		</>
+		<div className="comment-section">
+      <h1 id="comment-content">{comment.content}</h1>
+      <p id="comment-name">{comment.commentUser.name}</p>
+		</div>
 		)}
 	</div>
     </>

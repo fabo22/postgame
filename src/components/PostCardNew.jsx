@@ -3,21 +3,16 @@ import {Link} from 'react-router-dom';
 
 export default function PostCardNew({post}) { 
   return (
-    <div className='panel panel-default'>
-      <div className="panel-heading">
-        <h3 className='panel-title'>{post.title}</h3>
+    <div className='container'>
+      <div className="detail-header">
+        <h3 className='detail-title'>{post.title}</h3>
+        <dd>{post.userCount}</dd>
+        <dd>{post.game}</dd>
       </div>
-      <div className='panel-body'>
-        <dl>
-          <dt>Content</dt>
+      <div className='detail-body'>
           <dd>{post.content}</dd>
-          <dt>User Count</dt>
-          <dd>{post.userCount}</dd>
-          <dt>Game</dt>
-          <dd>{post.game}</dd>
-        </dl>
       </div>
-      <div className='panel-footer'>
+      <div className='detail-footer'>
         <Link to='/'>RETURN TO LIST</Link>
       </div>
     </div>
