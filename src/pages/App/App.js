@@ -108,11 +108,6 @@ export default class App extends Component {
             <NavLink className="auth"  exact to="/login">Log In</NavLink>
           </nav>
           }
-          {this.state.user ?
-            <p>Welcome {this.state.user.name}!</p>
-            :
-            <p>Login or Signup today!</p>
-          }
         </header>
         <main>
           <Route exact path="/profile" render={() => 
