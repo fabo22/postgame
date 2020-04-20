@@ -93,15 +93,16 @@ export default class App extends Component {
         <header>
           {this.state.user ?
           <nav className="blue-grey darken-4">
-             <NavLink className="links" exact to="/">View All Posts</NavLink>
+             <NavLink className="links post-game" exact to="/">PostGame</NavLink>
              <NavLink className="links" exact to="/new-post">Create a Post</NavLink>
              <NavLink className="links"  exact to="/profile">Profile</NavLink>
              <NavLink className="links"  exact to="/games">Games</NavLink>
+             <p className="auth">Logged In as {this.state.user.name}</p>
              <NavLink className="auth"  to="" onClick={handleLogout}>Log Out</NavLink>
           </nav>
             :
           <nav className="blue-grey darken-4">
-            <NavLink className="links" exact to="/">View All Posts</NavLink>
+            <NavLink className="links post-game" exact to="/">PostGame</NavLink>
             <NavLink className="links"  exact to="/games">Games</NavLink>
             <NavLink className="auth"  exact to="/signup">Sign Up</NavLink>
             <NavLink className="auth"  exact to="/login">Log In</NavLink>
