@@ -1,3 +1,5 @@
+import tokenService from './tokenService';
+
 const BASE_URL = '/api/posts' || 'https://postgame-app.herokuapp.com/api/posts';
 
 export function getAllPosts() {
@@ -10,7 +12,10 @@ export function getAllPosts() {
 function create(post) {
 	return fetch(BASE_URL, {
 		method: 'POST',
-		headers: { 'content-type': 'application/json' },
+		headers: { 
+			'content-type': 'application/json' ,
+			'Authorization': 'Bearer ' + tokenService.getToken()
+		},
 		body: JSON.stringify(post),
 	}).then((res) => res.json());
 }
@@ -18,6 +23,9 @@ function create(post) {
 function deleteOne(id) {
 	return fetch(`${BASE_URL}/${id}`, {
 		method: 'DELETE',
+		headers: {
+			'Authorization': 'Bearer ' + tokenService.getToken()
+		}
 	}).then((res) => res.json());
 }
 

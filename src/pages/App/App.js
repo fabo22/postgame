@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Redirect } from 'react-router-dom';
 import './App.css';
 import userService from '../../services/userService';
 import * as gamesAPI from '../../services/gameapiService';
@@ -116,9 +116,12 @@ export default class App extends Component {
         </header>
         <main>
           <Route exact path="/profile" render={() => 
+            userService.getUser() ?
             <ProfilePage
             user={this.state.user}
             />
+            :
+            <Redirect to="/login" />
           } />
           <Route exact path="/games" render={() => 
             <GamesListPage
@@ -135,11 +138,14 @@ export default class App extends Component {
             />
           } />
           <Route exact path="/new-post" render={( history, location ) => 
+            userService.getUser() ?
             <PostAddPage
             user={this.state.user}
             handleAddPost={this.handleAddPost}
             location={location}
             />
+            :
+            <Redirect to="/login" />
           } />
           <Route exact path="/post-details" render={( location ) => 
             <PostDetailPage
