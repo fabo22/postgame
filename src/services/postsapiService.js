@@ -14,7 +14,6 @@ function create(post) {
 		method: 'POST',
 		headers: { 
 			'content-type': 'application/json' ,
-			'Authorization': 'Bearer ' + tokenService.getToken()
 		},
 		body: JSON.stringify(post),
 	}).then((res) => res.json());
@@ -22,10 +21,7 @@ function create(post) {
 
 function deleteOne(id) {
 	return fetch(`${BASE_URL}/${id}`, {
-		method: 'DELETE',
-		headers: {
-			'Authorization': 'Bearer ' + tokenService.getToken()
-		}
+		method: 'DELETE'
 	}).then((res) => res.json());
 }
 

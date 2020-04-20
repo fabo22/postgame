@@ -1,5 +1,5 @@
 .detail-container {
-    padding-bottom: 8vh;
+    padding-bottom: 10vh;
 }
 
 .container {
@@ -11,6 +11,8 @@
     background-color: #253239;
     color: white;
     margin-bottom: 10vh;
+    margin-top: 2%;
+    margin-left: 15%;
 }
 
 .detail-title {
